@@ -11,17 +11,19 @@ function separe_minutes(minutes) {
   return { horas: Math.floor(minutes_to_hour), minutos: Math.round(minutesrest) };
 }
 function calcPreco(tarifa, horas, minutos) {
-  var preco = tarifa
+  var preco = parseFloat(tarifa)
   if(minutos > 15 && minutos <= 30){
- preco = tarifa * 2
+ preco *= 2
  }
  else if(minutos> 30 && minutos <= 45){
- preco = tarifa * 3
+ preco *= 3
  }
  else if(minutos > 45 && minutos <= 60){
- preco = tarifa * 4
+ preco *= 4
  }
- preco += tarifa * 4 * horas
+
+preco +=  parseFloat(tarifa) * parseFloat(horas) * 4
+ console.log('aftercalc' + preco)
 return  parseFloat(preco)
 }
 function InitCalc(tarifa,entrada,saida){
